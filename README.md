@@ -113,3 +113,42 @@ rights ist nur ein integer wenn man rechte n hat wird in einer liste nachgeschau
 1. Notes
 	1. der erste wert oder eher gesagt alle werte außer der letzte sind die datei gruppen auf die zugegriffen werden darf mit dieser permission der letzte wert beschreibt die rechte dafür 
 	2. es kann mehrere verschiedene rechte haben man kann somit sagen ein nutzer kann bei gruppe 1 schreiben und bei gruppe 2 lesen oder so
+
+
+
+
+
+
+## Route Planung
+
+
+```mermaid
+graph TD
+
+
+link["127.0.0.1:5000"]
+
+
+link --> user["/user"]
+
+user --> projName["/projName"]
+
+link --> login["/login"]
+
+link --> pannel["/pannel"]
+
+pannel --> managment["/managment"]
+
+managment --> branching["/history"]
+
+```
+
+
+
+
+## Routs und ihre docs
+
+[user](/doc/user)
+[login](/doc/login)
+
+
