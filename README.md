@@ -78,9 +78,9 @@ graph TD
 ### user.db
 
 
-| id  | username | rights | dateLastAdded | password | session id      |
-|-----|----------|--------|---------------|----------|-----------------|
-| 1-n | ...      | int    | ...           | hash256  | 32 byte string  |
+| id  | username | rights | dateLastAdded | password | session id     |
+| --- | -------- | ------ | ------------- | -------- | -------------- |
+| 1-n | ...      | int    | ...           | hash256  | 32 byte string |
 
 
 
@@ -150,5 +150,10 @@ managment --> branching["/history"]
 
 [user](/doc/user)
 [login](/doc/login)
+
+
+
+
+
 
 
