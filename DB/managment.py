@@ -1,6 +1,6 @@
 import sqlite3
 import hashlib
-
+import random as ran
 
 
 db = sqlite3.connect("data/user.db")
@@ -48,6 +48,28 @@ def verify_And_Session(id,password,session_id):
     else: 
         return False
 
+def int_to_string(value: int, x: int) -> str:
+    binary = bin(value)[2:]
+
+    # Auf ein Vielfaches von 8 auffüllen
+    binary += "0" * ((8 - len(binary) % 8) % 8)
+
+    # Binär in ASCII-Zeichen umwandeln
+    string = ''.join(
+        chr(int(binary[i:i+8], 2))
+        for i in range(0, len(binary), 8)
+    )
+
+    # Auf genau x Zeichen auffüllen
+    string = string.ljust(x, "\x00")
+
+    return string[:x]
+
+
+def session_id_gen(seed:int)->str:
+    ran.seed(seed)
+    
+    return ran.randint(1,256**32)
 
 
 
@@ -58,6 +80,10 @@ def verify_And_Session(id,password,session_id):
 if __name__ == "__main__":
     print(verify(1,"1234"))
     print(verify_And_Session(1,"1234","e"))
+    #print(session_id_gen(3))
+    x = int_to_string(session_id_gen(3),32)
+    print(len(x))
+    print(x)
 
 
 db.close()
